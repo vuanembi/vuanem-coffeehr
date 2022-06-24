@@ -2,11 +2,11 @@ from google.cloud import bigquery
 
 DATASET = "IP_CoffeeHR"
 
-client = bigquery.Client()
 
 
 def load(table: str, schema: list[dict]):
     def _load(rows: list[dict]) -> int:
+        client = bigquery.Client()
         output_rows = (
             client.load_table_from_json(
                 rows,
