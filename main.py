@@ -11,7 +11,7 @@ def main(request):
     if "tasks" in data:
         response = create_tasks_service()
     elif "table" in data:
-        response = coffeehr_controller(data)
+        response = coffeehr_controller.controller(data)
     else:
         raise ValueError(data)
 
