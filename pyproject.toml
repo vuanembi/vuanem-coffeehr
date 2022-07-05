@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vuanem-coffeehr"
-version = "1.0"
+version = "1.1"
 description = ""
 authors = ["HM <hieumdd@gmail.com>"]
 
@@ -25,9 +25,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = "-s --durations=0"
-testpaths = [
-    "test",
-]
 
 [tool.mypy]
 python_version = 3.9

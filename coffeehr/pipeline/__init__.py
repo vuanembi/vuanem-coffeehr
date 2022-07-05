@@ -1,3 +1,13 @@
-from coffeehr.pipeline import departments, employees
+from coffeehr.pipeline import departments, employees, activities
 
-pipelines = {i.name: i for i in [j.pipeline for j in [departments, employees]]}  # type: ignore
+pipelines = {
+    i.name: i
+    for i in [
+        j.pipeline  # type: ignore
+        for j in [
+            departments,
+            employees,
+            activities,
+        ]
+    ]
+}
