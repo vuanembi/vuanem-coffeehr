@@ -1,7 +1,7 @@
 from typing import Any
 
-from coffeehr import coffeehr_controller
-from tasks.tasks_service import create_tasks_service
+from coffeehr import coffeehr_service
+from coffeehr.pipeline import pipelines
 
 
 def main(request):
@@ -9,9 +9,9 @@ def main(request):
     print(data)
 
     if "tasks" in data:
-        response = create_tasks_service()
+        response = coffeehr_service.create_tasks_service()
     elif "table" in data:
-        response = coffeehr_controller.controller(data)
+        response = coffeehr_service.pipeline_service(pipelines[data["table"]])
     else:
         raise ValueError(data)
 

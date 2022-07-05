@@ -1,8 +1,7 @@
 import pytest
 
 from coffeehr.pipeline import pipelines
-from coffeehr.coffeehr_service import pipeline_service
-from tasks.tasks_service import create_tasks_service
+from coffeehr import coffeehr_service
 
 
 class TestCoffeeHR:
@@ -14,11 +13,11 @@ class TestCoffeeHR:
         return request.param
 
     def test_service(self, pipeline):
-        res = pipeline_service(pipeline)
+        res = coffeehr_service.pipeline_service(pipeline)
         assert res >= 0
 
 
 class TestTasks:
     def test_service(self):
-        res = create_tasks_service()
+        res = coffeehr_service.create_tasks_service()
         assert res["tasks"] > 0
